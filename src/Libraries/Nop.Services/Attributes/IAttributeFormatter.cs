@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
+using Nop.Core.Domain.Attributes;
 
-namespace Nop.Services.Customers
+namespace Nop.Services.Attributes
 {
-    /// <summary>
-    /// Customer attribute helper
-    /// </summary>
-    public partial interface ICustomerAttributeFormatter
+    public partial interface IAttributeFormatter<TAttribute, TAttributeValue>
+        where TAttribute : BaseAttribute
+        where TAttributeValue : BaseAttributeValue
     {
         /// <summary>
         /// Formats attributes
@@ -17,6 +17,8 @@ namespace Nop.Services.Customers
         /// A task that represents the asynchronous operation
         /// The task result contains the attributes
         /// </returns>
-        Task<string> FormatAttributesAsync(string attributesXml, string separator = "<br />", bool htmlEncode = true);
+        Task<string> FormatAttributesAsync(string attributesXml,
+            string separator = "<br />",
+            bool htmlEncode = true);
     }
 }

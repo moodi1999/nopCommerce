@@ -10,7 +10,6 @@ using Microsoft.Extensions.Primitives;
 using Nop.Core;
 using Nop.Core.Domain.Catalog;
 using Nop.Data;
-using Nop.Services.Common;
 using Nop.Services.Directory;
 using Nop.Services.Localization;
 using Nop.Services.Media;
@@ -20,9 +19,8 @@ namespace Nop.Services.Catalog
     /// <summary>
     /// Product attribute parser
     /// </summary>
-    public partial class ProductAttributeParser : BaseAttributeParser, IProductAttributeParser
+    public partial class ProductAttributeParser : IProductAttributeParser
     {
-
         #region Fields
 
         private readonly ICurrencyService _currencyService;
@@ -321,6 +319,107 @@ namespace Nop.Services.Catalog
                 }
             }
             return attributesXml;
+        }
+        
+        /// <summary>
+        /// Remove an attribute
+        /// </summary>
+        /// <param name="attributesXml">Attributes in XML format</param>
+        /// <param name="attributeValueId">Attribute value id</param>
+        /// <returns>Updated result (XML format)</returns>
+        protected virtual string RemoveAttribute(string attributesXml, int attributeValueId)
+        {
+            var result = string.Empty;
+
+            if (string.IsNullOrEmpty(attributesXml))
+                return string.Empty;
+
+            try
+            {
+                var xmlDoc = new XmlDocument();
+
+                xmlDoc.LoadXml(attributesXml);
+
+                var rootElement = (XmlElement)xmlDoc.SelectSingleNode(@"//Attributes");
+
+                if (rootElement == null)
+                    return string.Empty;
+
+                XmlElement attributeElement = null;
+                //find existing
+                var childNodes = xmlDoc.SelectNodes($@"//Attributes/{ChildElementName}");
+
+                if (childNodes == null)
+                    return string.Empty;
+
+                var count = childNodes.Count;
+
+                foreach (XmlElement childNode in childNodes)
+                {
+                    if (!int.TryParse(childNode.Attributes["ID"]?.InnerText.Trim(), out var id))
+                        continue;
+
+                    if (id != attributeValueId)
+                        continue;
+
+                    attributeElement = childNode;
+                    break;
+                }
+
+                //found
+                if (attributeElement != null)
+                {
+                    rootElement.RemoveChild(attributeElement);
+                    count -= 1;
+                }
+
+                result = count == 0 ? string.Empty : xmlDoc.OuterXml;
+            }
+            catch (Exception exc)
+            {
+                Debug.Write(exc.ToString());
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Gets selected attribute identifiers
+        /// </summary>
+        /// <param name="attributesXml">Attributes in XML format</param>
+        /// <returns>Selected attribute identifiers</returns>
+        protected virtual IList<int> ParseAttributeIds(string attributesXml)
+        {
+            var ids = new List<int>();
+            if (string.IsNullOrEmpty(attributesXml))
+                return ids;
+
+            try
+            {
+                var xmlDoc = new XmlDocument();
+                xmlDoc.LoadXml(attributesXml);
+
+                var elements = xmlDoc.SelectNodes(@$"//Attributes/{ChildElementName}");
+
+                if (elements == null)
+                    return Array.Empty<int>();
+
+                foreach (XmlNode node in elements)
+                {
+                    if (node.Attributes?["ID"] == null)
+                        continue;
+
+                    var attributeValue = node.Attributes["ID"].InnerText.Trim();
+                    if (int.TryParse(attributeValue, out var id))
+                        ids.Add(id);
+                }
+            }
+            catch (Exception exc)
+            {
+                Debug.Write(exc.ToString());
+            }
+
+            return ids;
         }
 
         #endregion
@@ -1035,10 +1134,8 @@ namespace Nop.Services.Catalog
         #endregion
 
         #region Properties
-
-        protected override string RootElementName { get; set; } = "Attributes";
-
-        protected override string ChildElementName { get; set; } = "ProductAttribute";
+        
+        protected string ChildElementName { get; set; } = "ProductAttribute";
 
         #endregion
     }
