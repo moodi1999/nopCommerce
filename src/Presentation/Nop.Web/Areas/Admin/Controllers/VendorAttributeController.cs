@@ -266,7 +266,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //try to get a vendor attribute with the specified id
-            var vendorAttribute = await _vendorAttributeService.GetAttributeByIdAsync(model.VendorAttributeId);
+            var vendorAttribute = await _vendorAttributeService.GetAttributeByIdAsync(model.AttributeId);
             if (vendorAttribute == null)
                 return RedirectToAction("List");
 

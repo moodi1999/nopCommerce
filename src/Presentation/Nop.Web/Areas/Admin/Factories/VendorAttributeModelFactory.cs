@@ -218,7 +218,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 };
             }
 
-            model.VendorAttributeId = vendorAttribute.Id;
+            model.AttributeId = vendorAttribute.Id;
 
             //prepare localized models
             if (!excludeProperties)

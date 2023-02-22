@@ -2,6 +2,9 @@
 
 namespace Nop.Core.Domain.Attributes
 {
+    /// <summary>
+    /// Represents the base class for attribute values
+    /// </summary>
     public abstract partial class BaseAttributeValue : BaseEntity, ILocalizedEntity
     {
         /// <summary>

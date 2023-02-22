@@ -27,6 +27,18 @@ namespace Nop.Tests.Nop.Services.Tests.Common
         private IAttributeService<AddressAttribute, AddressAttributeValue> _addressAttributeService;
         private IAttributeService<CheckoutAttribute, CheckoutAttributeValue> _checkoutAttributeService;
 
+        private List<int> _customerAttributeIds = new();
+        private List<int> _customerAttributeValuesIds = new();
+
+        private List<int> _vendorAttributeIds = new();
+        private List<int> _vendorAttributeValuesIds = new();
+
+        private List<int> _addressAttributeIds = new();
+        private List<int> _addressAttributeValuesIds = new();
+
+        private List<int> _checkoutAttributeIds = new();
+        private List<int> _checkoutAttributeValuesIds = new();
+
         protected void PrepareTestData(Type attributeType)
         {
             _attributesXml = $"<Attributes><{attributeType.Name} ID=\"1\"><{attributeType.Name}Value><Value>1</Value></{attributeType.Name}Value></{attributeType.Name}><{attributeType.Name} ID=\"2\"><{attributeType.Name}Value><Value>2</Value></{attributeType.Name}Value></{attributeType.Name}></Attributes>";
@@ -54,8 +66,8 @@ namespace Nop.Tests.Nop.Services.Tests.Common
             _vendorAttributeService = GetService<IAttributeService<VendorAttribute, VendorAttributeValue>>();
             _addressAttributeService = GetService<IAttributeService<AddressAttribute, AddressAttributeValue>>();
             _checkoutAttributeService = GetService<IAttributeService<CheckoutAttribute, CheckoutAttributeValue>>();
-
-            for (var i=0; i < 2; i++)
+            
+            for (var i = 0; i < 2; i++)
             {
                 BaseAttribute attribute = new CustomerAttribute
                 {
@@ -63,10 +75,16 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     Name = "test"
                 };
                 await _customerAttributeService.InsertAttributeAsync((CustomerAttribute)attribute);
+                _customerAttributeIds.Add(attribute.Id);
+
                 BaseAttributeValue attributeValue = new CustomerAttributeValue { AttributeId = attribute.Id, Name = "test"};
                 await _customerAttributeService.InsertAttributeValueAsync((CustomerAttributeValue)attributeValue);
+                _customerAttributeValuesIds.Add(attributeValue.Id);
+
                 attributeValue = new CustomerAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _customerAttributeService.InsertAttributeValueAsync((CustomerAttributeValue)attributeValue);
+                _customerAttributeValuesIds.Add(attributeValue.Id);
+
                 attribute = new CustomerAttribute
                 {
                     AttributeControlType = AttributeControlType.DropdownList,
@@ -74,6 +92,7 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     IsRequired = true
                 };
                 await _customerAttributeService.InsertAttributeAsync((CustomerAttribute)attribute);
+                _customerAttributeIds.Add(attribute.Id);
 
                 attribute = new VendorAttribute
                 {
@@ -81,10 +100,16 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     Name = "test"
                 };
                 await _vendorAttributeService.InsertAttributeAsync((VendorAttribute)attribute);
+                _vendorAttributeIds.Add(attribute.Id);
+
                 attributeValue = new VendorAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _vendorAttributeService.InsertAttributeValueAsync((VendorAttributeValue)attributeValue);
+                _vendorAttributeValuesIds.Add(attributeValue.Id);
+
                 attributeValue = new VendorAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _vendorAttributeService.InsertAttributeValueAsync((VendorAttributeValue)attributeValue);
+                _vendorAttributeValuesIds.Add(attributeValue.Id);
+
                 attribute = new VendorAttribute
                 {
                     AttributeControlType = AttributeControlType.DropdownList,
@@ -92,6 +117,7 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     IsRequired = true
                 };
                 await _vendorAttributeService.InsertAttributeAsync((VendorAttribute)attribute);
+                _vendorAttributeIds.Add(attribute.Id);
 
                 attribute = new AddressAttribute
                 {
@@ -99,10 +125,16 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     Name = "test"
                 };
                 await _addressAttributeService.InsertAttributeAsync((AddressAttribute)attribute);
+                _addressAttributeIds.Add(attribute.Id);
+
                 attributeValue = new AddressAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _addressAttributeService.InsertAttributeValueAsync((AddressAttributeValue)attributeValue);
+                _addressAttributeValuesIds.Add(attributeValue.Id);
+
                 attributeValue = new AddressAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _addressAttributeService.InsertAttributeValueAsync((AddressAttributeValue)attributeValue);
+                _addressAttributeValuesIds.Add(attributeValue.Id);
+
                 attribute = new AddressAttribute
                 {
                     AttributeControlType = AttributeControlType.DropdownList,
@@ -110,6 +142,7 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     IsRequired = true
                 };
                 await _addressAttributeService.InsertAttributeAsync((AddressAttribute)attribute);
+                _addressAttributeIds.Add(attribute.Id);
 
                 attribute = new CheckoutAttribute
                 {
@@ -117,10 +150,16 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     Name = "test"
                 };
                 await _checkoutAttributeService.InsertAttributeAsync((CheckoutAttribute)attribute);
+                _checkoutAttributeIds.Add(attribute.Id);
+
                 attributeValue = new CheckoutAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _checkoutAttributeService.InsertAttributeValueAsync((CheckoutAttributeValue)attributeValue);
+                _checkoutAttributeValuesIds.Add(attributeValue.Id);
+
                 attributeValue = new CheckoutAttributeValue { AttributeId = attribute.Id, Name = "test" };
                 await _checkoutAttributeService.InsertAttributeValueAsync((CheckoutAttributeValue)attributeValue);
+                _checkoutAttributeValuesIds.Add(attributeValue.Id);
+
                 attribute = new CheckoutAttribute
                 {
                     AttributeControlType = AttributeControlType.DropdownList,
@@ -128,27 +167,37 @@ namespace Nop.Tests.Nop.Services.Tests.Common
                     IsRequired = true
                 };
                 await _checkoutAttributeService.InsertAttributeAsync((CheckoutAttribute)attribute);
+                _checkoutAttributeIds.Add(attribute.Id);
             }
         }
 
         [OneTimeTearDown]
         public async Task TearDown()
         {
-            for (var i = 1; i < 5; i++)
-            {
-                await _customerAttributeService.DeleteAttributeValueAsync(new CustomerAttributeValue { Id = i });
-                await _vendorAttributeService.DeleteAttributeValueAsync(new VendorAttributeValue { Id = i });
-                await _addressAttributeService.DeleteAttributeValueAsync(new AddressAttributeValue { Id = i });
-                await _checkoutAttributeService.DeleteAttributeValueAsync(new CheckoutAttributeValue { Id = i });
-            }
+            foreach(var id in _customerAttributeValuesIds)
+                await _customerAttributeService.DeleteAttributeValueAsync(new CustomerAttributeValue { Id = id });
 
-            for (var i = 1; i < 5; i++)
-            {
-                await _customerAttributeService.DeleteAttributeAsync(new CustomerAttribute { Id = i });
-                await _vendorAttributeService.DeleteAttributeAsync(new VendorAttribute { Id = i });
-                await _addressAttributeService.DeleteAttributeAsync(new AddressAttribute { Id = i });
-                await _checkoutAttributeService.DeleteAttributeAsync(new CheckoutAttribute { Id = i });
-            }
+            foreach (var id in _vendorAttributeValuesIds)
+                await _vendorAttributeService.DeleteAttributeValueAsync(new VendorAttributeValue { Id = id });
+
+            foreach (var id in _addressAttributeValuesIds)
+                await _addressAttributeService.DeleteAttributeValueAsync(new AddressAttributeValue { Id = id });
+
+            foreach (var id in _checkoutAttributeValuesIds)
+                await _checkoutAttributeService.DeleteAttributeValueAsync(new CheckoutAttributeValue { Id = id });
+
+
+            foreach (var id in _customerAttributeIds)
+                await _customerAttributeService.DeleteAttributeAsync(new CustomerAttribute { Id = id });
+
+            foreach (var id in _vendorAttributeIds)
+                await _vendorAttributeService.DeleteAttributeAsync(new VendorAttribute { Id = id });
+
+            foreach (var id in _addressAttributeIds)
+                await _addressAttributeService.DeleteAttributeAsync(new AddressAttribute { Id = id });
+
+            foreach (var id in _checkoutAttributeIds)
+                await _checkoutAttributeService.DeleteAttributeAsync(new CheckoutAttribute { Id = id });
         }
 
         [Test]

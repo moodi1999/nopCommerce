@@ -1,5 +1,4 @@
-﻿using Nop.Core.Caching;
-using Nop.Core.Domain.Vendors;
+﻿using Nop.Core.Domain.Vendors;
 using Nop.Services.Caching;
 using System.Threading.Tasks;
 using Nop.Services.Attributes;

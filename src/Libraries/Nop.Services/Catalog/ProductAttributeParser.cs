@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -375,9 +374,9 @@ namespace Nop.Services.Catalog
 
                 result = count == 0 ? string.Empty : xmlDoc.OuterXml;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return result;
@@ -414,9 +413,9 @@ namespace Nop.Services.Catalog
                         ids.Add(id);
                 }
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return ids;
@@ -542,9 +541,9 @@ namespace Nop.Services.Catalog
                     }
                 }
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return selectedValues;
@@ -620,9 +619,9 @@ namespace Nop.Services.Catalog
 
                 result = xmlDoc.OuterXml;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return result;
@@ -1076,9 +1075,9 @@ namespace Nop.Services.Catalog
 
                 result = xmlDoc.OuterXml;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return result;
@@ -1125,9 +1124,9 @@ namespace Nop.Services.Catalog
                 if (messageElement != null)
                     giftCardMessage = messageElement.InnerText;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
         }
 

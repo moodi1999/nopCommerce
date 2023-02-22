@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace Nop.Services.Attributes
 {
+    /// <summary>
+    /// Represents an attribute parser
+    /// </summary>
+    /// <typeparam name="TAttribute">Type of the attribute (see <see cref="BaseAttribute"/>)</typeparam>
+    /// <typeparam name="TAttributeValue">Type of the attribute value (see <see cref="BaseAttributeValue"/>)</typeparam>
     public partial interface IAttributeParser<TAttribute, TAttributeValue>
         where TAttribute : BaseAttribute
         where TAttributeValue : BaseAttributeValue
@@ -15,24 +20,24 @@ namespace Nop.Services.Attributes
         /// <param name="attributesXml">Attributes in XML format</param>
         /// <returns>
         /// A task that represents the asynchronous operation
-        /// The task result contains the selected address attributes
+        /// The task result contains the selected attributes
         /// </returns>
         Task<IList<TAttribute>> ParseAttributesAsync(string attributesXml);
 
         /// <summary>
-        /// Gets selected address attribute identifiers
+        /// Gets selected attribute identifiers
         /// </summary>
         /// <param name="attributesXml">Attributes in XML format</param>
-        /// <returns>Selected address attribute identifiers</returns>
+        /// <returns>Selected attribute identifiers</returns>
         IEnumerable<int> ParseAttributeIds(string attributesXml);
 
         /// <summary>
         /// Remove an attribute
         /// </summary>
         /// <param name="attributesXml">Attributes in XML format</param>
-        /// <param name="attributeValueId">Attribute value identifier</param>
+        /// <param name="attributeId">Attribute identifier</param>
         /// <returns>Updated result (XML format)</returns>
-        string RemoveAttribute(string attributesXml, int attributeValueId);
+        string RemoveAttribute(string attributesXml, int attributeId);
 
         /// <summary>
         /// Get custom attributes from the passed form

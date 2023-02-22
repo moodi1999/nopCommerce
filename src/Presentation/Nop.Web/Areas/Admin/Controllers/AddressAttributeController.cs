@@ -279,7 +279,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //try to get an address attribute with the specified id
-            var addressAttribute = await _addressAttributeService.GetAttributeByIdAsync(model.AddressAttributeId);
+            var addressAttribute = await _addressAttributeService.GetAttributeByIdAsync(model.AttributeId);
             if (addressAttribute == null)
                 return RedirectToAction("List");
 

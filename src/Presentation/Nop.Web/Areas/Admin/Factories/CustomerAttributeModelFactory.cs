@@ -219,7 +219,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 };
             }
 
-            model.CustomerAttributeId = customerAttribute.Id;
+            model.AttributeId = customerAttribute.Id;
 
             //prepare localized models
             if (!excludeProperties)

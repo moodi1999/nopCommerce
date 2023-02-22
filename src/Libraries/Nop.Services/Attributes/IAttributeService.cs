@@ -7,6 +7,8 @@ namespace Nop.Services.Attributes
     /// <summary>
     /// Represents an attribute service
     /// </summary>
+    /// <typeparam name="TAttribute">Type of the attribute (see <see cref="BaseAttribute"/>)</typeparam>
+    /// <typeparam name="TAttributeValue">Type of the attribute value (see <see cref="BaseAttributeValue"/>)</typeparam>
     public partial interface IAttributeService<TAttribute, TAttributeValue>
         where TAttribute : BaseAttribute
         where TAttributeValue : BaseAttributeValue

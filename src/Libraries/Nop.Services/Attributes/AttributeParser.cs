@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
@@ -8,11 +7,15 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Primitives;
 using Nop.Core.Domain.Attributes;
 using Nop.Core.Domain.Catalog;
-using Nop.Services.Common;
 using Nop.Services.Localization;
 
 namespace Nop.Services.Attributes
 {
+    /// <summary>
+    /// Attribute parser
+    /// </summary>
+    /// <typeparam name="TAttribute">Type of the attribute (see <see cref="BaseAttribute"/>)</typeparam>
+    /// <typeparam name="TAttributeValue">Type of the attribute value (see <see cref="BaseAttributeValue"/>)</typeparam>
     public partial class AttributeParser<TAttribute, TAttributeValue> : IAttributeParser<TAttribute, TAttributeValue>
         where TAttribute : BaseAttribute 
         where TAttributeValue : BaseAttributeValue
@@ -69,10 +72,10 @@ namespace Nop.Services.Attributes
         #region Methods
 
         /// <summary>
-        /// Gets selected address attribute identifiers
+        /// Gets selected attribute identifiers
         /// </summary>
         /// <param name="attributesXml">Attributes in XML format</param>
-        /// <returns>Selected address attribute identifiers</returns>
+        /// <returns>Selected attribute identifiers</returns>
         public virtual IEnumerable<int> ParseAttributeIds(string attributesXml)
         {
             var ids = new List<int>();
@@ -100,9 +103,9 @@ namespace Nop.Services.Attributes
                         ids.Add(id);
                 }
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return ids;
@@ -114,7 +117,7 @@ namespace Nop.Services.Attributes
         /// <param name="attributesXml">Attributes in XML format</param>
         /// <returns>
         /// A task that represents the asynchronous operation
-        /// The task result contains the selected address attributes
+        /// The task result contains the selected attributes
         /// </returns>
         public virtual async Task<IList<TAttribute>> ParseAttributesAsync(string attributesXml)
         {
@@ -137,9 +140,9 @@ namespace Nop.Services.Attributes
         /// Remove an attribute
         /// </summary>
         /// <param name="attributesXml">Attributes in XML format</param>
-        /// <param name="attributeValueId">Attribute value identifier</param>
+        /// <param name="attributeId">Attribute identifier</param>
         /// <returns>Updated result (XML format)</returns>
-        public virtual string RemoveAttribute(string attributesXml, int attributeValueId)
+        public virtual string RemoveAttribute(string attributesXml, int attributeId)
         {
             var result = string.Empty;
 
@@ -171,7 +174,7 @@ namespace Nop.Services.Attributes
                     if (!int.TryParse(childNode.Attributes["ID"]?.InnerText.Trim(), out var id))
                         continue;
 
-                    if (id != attributeValueId)
+                    if (id != attributeId)
                         continue;
 
                     attributeElement = childNode;
@@ -187,9 +190,9 @@ namespace Nop.Services.Attributes
 
                 result = count == 0 ? string.Empty : xmlDoc.OuterXml;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return result;
@@ -240,9 +243,9 @@ namespace Nop.Services.Attributes
                     }
                 }
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return selectedAddressAttributeValues;
@@ -358,9 +361,9 @@ namespace Nop.Services.Attributes
 
                 result = xmlDoc.OuterXml;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return result;
@@ -381,7 +384,7 @@ namespace Nop.Services.Attributes
             //ensure it's our attributes
             var attributes1 = await ParseAttributesAsync(attributesXml);
 
-            //validate required address attributes (whether they're chosen/selected/entered)
+            //validate required attributes (whether they're chosen/selected/entered)
             var attributes2 = await _attributeService.GetAllAttributesAsync();
 
             foreach (var a2 in attributes2)
@@ -390,7 +393,7 @@ namespace Nop.Services.Attributes
                     continue;
 
                 var found = false;
-                //selected address attributes
+                //selected attributes
                 foreach (var a1 in attributes1)
                 {
                     if (a1.Id != a2.Id)

@@ -267,7 +267,7 @@ namespace Nop.Tests
 
             var memoryDistributedCache = new MemoryDistributedCache(new TestMemoryDistributedCacheoptions());
             services.AddSingleton<IDistributedCache>(memoryDistributedCache);
-            services.AddTransient<MemoryDistributedCacheManager>();
+            services.AddScoped<MemoryDistributedCacheManager>();
             services.AddSingleton(new DistributedCacheLocker(memoryDistributedCache));
             
             //services

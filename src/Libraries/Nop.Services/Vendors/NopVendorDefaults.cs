@@ -1,6 +1,4 @@
-﻿using Nop.Core.Caching;
-
-namespace Nop.Services.Vendors
+﻿namespace Nop.Services.Vendors
 {
     /// <summary>
     /// Represents default values related to vendor services

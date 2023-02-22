@@ -123,7 +123,7 @@ namespace Nop.Tests.Nop.Services.Tests.Orders
             var checkoutAttributeService = GetService<IAttributeService<CheckoutAttribute, CheckoutAttributeValue>>();
 
             var attr = await checkoutAttributeService.GetAttributeByIdAsync(1);
-
+            
             var values = await checkoutAttributeService.GetAttributeValuesAsync(attr.Id);
 
             var val = values.FirstOrDefault(p => p.Name == "Yes")?.Id.ToString();

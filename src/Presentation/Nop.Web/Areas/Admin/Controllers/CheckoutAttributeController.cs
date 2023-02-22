@@ -418,7 +418,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //try to get a checkout attribute with the specified id
-            var checkoutAttribute = await _checkoutAttributeService.GetAttributeByIdAsync(model.CheckoutAttributeId);
+            var checkoutAttribute = await _checkoutAttributeService.GetAttributeByIdAsync(model.AttributeId);
             if (checkoutAttribute == null)
                 return RedirectToAction("List");
 

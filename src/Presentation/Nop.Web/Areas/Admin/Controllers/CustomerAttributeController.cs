@@ -264,7 +264,7 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //try to get a customer attribute with the specified id
-            var customerAttribute = await _customerAttributeService.GetAttributeByIdAsync(model.CustomerAttributeId);
+            var customerAttribute = await _customerAttributeService.GetAttributeByIdAsync(model.AttributeId);
             if (customerAttribute == null)
                 return RedirectToAction("List");
 

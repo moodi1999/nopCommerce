@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Xml;
 using Nop.Core.Domain.Orders;
@@ -75,9 +73,9 @@ namespace Nop.Services.Orders
 
                 result = xmlDoc.OuterXml;
             }
-            catch (Exception exc)
+            catch
             {
-                Debug.Write(exc.ToString());
+                //ignore
             }
 
             return result;

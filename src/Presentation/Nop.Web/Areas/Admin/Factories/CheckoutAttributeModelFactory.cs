@@ -315,7 +315,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 };
             }
 
-            model.CheckoutAttributeId = checkoutAttribute.Id;
+            model.AttributeId = checkoutAttribute.Id;
             model.PrimaryStoreCurrencyCode = (await _currencyService.GetCurrencyByIdAsync(_currencySettings.PrimaryStoreCurrencyId)).CurrencyCode;
             model.BaseWeightIn = (await _measureService.GetMeasureWeightByIdAsync(_measureSettings.BaseWeightId)).Name;
             model.DisplayColorSquaresRgb = checkoutAttribute.AttributeControlType == AttributeControlType.ColorSquares;

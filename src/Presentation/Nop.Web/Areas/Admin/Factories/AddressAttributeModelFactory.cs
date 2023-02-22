@@ -222,7 +222,7 @@ namespace Nop.Web.Areas.Admin.Factories
                 };
             }
 
-            model.AddressAttributeId = addressAttribute.Id;
+            model.AttributeId = addressAttribute.Id;
 
             //prepare localized models
             if (!excludeProperties)

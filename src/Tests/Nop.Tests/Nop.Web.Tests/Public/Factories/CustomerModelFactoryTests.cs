@@ -19,7 +19,6 @@ namespace Nop.Tests.Nop.Web.Tests.Public.Factories
         private Customer _customer;
         private CustomerAttribute[] _customerAttributes;
 
-
         [OneTimeSetUp]
         public async Task SetUp()
         {

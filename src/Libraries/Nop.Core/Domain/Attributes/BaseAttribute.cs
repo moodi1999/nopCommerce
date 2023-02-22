@@ -3,6 +3,9 @@ using Nop.Core.Domain.Localization;
 
 namespace Nop.Core.Domain.Attributes
 {
+    /// <summary>
+    /// Represents the base class for attributes
+    /// </summary>
     public abstract partial class BaseAttribute: BaseEntity, ILocalizedEntity
     {
         /// <summary>

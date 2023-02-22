@@ -8,6 +8,11 @@ using Nop.Data;
 
 namespace Nop.Services.Attributes
 {
+    /// <summary>
+    /// Attribute service
+    /// </summary>
+    /// <typeparam name="TAttribute">Type of the attribute (see <see cref="BaseAttribute"/>)</typeparam>
+    /// <typeparam name="TAttributeValue">Type of the attribute value (see <see cref="BaseAttributeValue"/>)</typeparam>
     public partial class AttributeService<TAttribute, TAttributeValue> : IAttributeService<TAttribute, TAttributeValue>
         where TAttribute : BaseAttribute
         where TAttributeValue : BaseAttributeValue
@@ -118,8 +123,7 @@ namespace Nop.Services.Attributes
             if (attributes == null)
                 throw new ArgumentNullException(nameof(attributes));
 
-            foreach (var attribute in attributes)
-                await DeleteAttributeAsync(attribute);
+            await _attributeRepository.DeleteAsync(attributes);
         }
 
         #endregion
