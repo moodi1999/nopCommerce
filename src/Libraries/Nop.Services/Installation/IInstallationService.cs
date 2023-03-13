@@ -19,12 +19,5 @@ namespace Nop.Services.Installation
         /// <returns>A task that represents the asynchronous operation</returns>
         Task InstallRequiredDataAsync(string defaultUserEmail, string defaultUserPassword,
             (string languagePackDownloadLink, int languagePackProgress) languagePackInfo, RegionInfo regionInfo, CultureInfo cultureInfo);
-
-        /// <summary>
-        /// Install sample data
-        /// </summary>
-        /// <param name="defaultUserEmail">Default user email</param>
-        /// <returns>A task that represents the asynchronous operation</returns>
-        Task InstallSampleDataAsync(string defaultUserEmail);
     }
 }
