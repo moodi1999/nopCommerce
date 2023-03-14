@@ -74,24 +74,13 @@ namespace Nop.Web.Controllers
             if (!model.InstallRegionalResources)
                 return model;
 
-            var browserCulture = _locService.Value.GetBrowserCulture();
-            var countries = new List<SelectListItem>
+            model.AvailableCountries.Add(new SelectListItem
             {
-                //This item was added in case it was not possible to automatically determine the country by culture
-                new SelectListItem { Value = string.Empty, Text = _locService.Value.GetResource("CountrySelect") }
-            };
-            countries.AddRange(from country in ISO3166.GetCollection()
-                               from localization in ISO3166.GetLocalizationInfo(country.Alpha2)
-                               let lang = ISO3166.GetLocalizationInfo(country.Alpha2).Count() > 1 ? $" [{localization.Language} language]" : string.Empty
-                               let item = new SelectListItem
-                               {
-                                   Value = $"{country.Alpha2}-{localization.Culture}",
-                                   Text = $"{country.Name}{lang}",
-                                   Selected = (localization.Culture == browserCulture) && browserCulture[^2..] == country.Alpha2
-                               }
-                               select item);
-            model.AvailableCountries.AddRange(countries);
-
+                Value = "IR-fa-IR",
+                Text = "ایران",
+                Selected = true
+            });
+            
             return model;
         }
 
@@ -272,8 +261,8 @@ namespace Nop.Web.Controllers
                 //now resolve installation service
                 await _installationService.Value.InstallRequiredDataAsync(model.AdminEmail, model.AdminPassword, languagePackInfo, regionInfo, cultureInfo);
 
-                if (model.InstallSampleData)
-                    await _installationService.Value.InstallSampleDataAsync(model.AdminEmail);
+                // if (model.InstallSampleData)
+                    // await _installationService.Value.InstallSampleDataAsync(model.AdminEmail);
 
                 //prepare plugins to install
                 _pluginService.Value.ClearInstalledPluginsList();

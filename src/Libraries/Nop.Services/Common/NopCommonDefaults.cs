@@ -82,12 +82,12 @@ namespace Nop.Services.Common
         /// <summary>
         /// Gets a name of the default pattern locale
         /// </summary>
-        public static string DefaultLocalePattern => "en";
+        public static string DefaultLocalePattern => "fa";
 
         /// <summary>
         /// Gets default CultureInfo 
         /// </summary>
-        public static string DefaultLanguageCulture => "en-US";
+        public static string DefaultLanguageCulture => "fa-IR";
 
         /// <summary>
         /// Gets minimal progress of language pack translation to download and install

@@ -9,14 +9,12 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Nop.Core;
 using Nop.Core.Domain;
-using Nop.Core.Domain.Affiliates;
 using Nop.Core.Domain.Blogs;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Cms;
 using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Directory;
-using Nop.Core.Domain.Discounts;
 using Nop.Core.Domain.Forums;
 using Nop.Core.Domain.Gdpr;
 using Nop.Core.Domain.Localization;
@@ -26,7 +24,6 @@ using Nop.Core.Domain.Messages;
 using Nop.Core.Domain.News;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Payments;
-using Nop.Core.Domain.Polls;
 using Nop.Core.Domain.ScheduleTasks;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Seo;
@@ -39,7 +36,6 @@ using Nop.Core.Http;
 using Nop.Core.Infrastructure;
 using Nop.Core.Security;
 using Nop.Data;
-using Nop.Services.Blogs;
 using Nop.Services.Catalog;
 using Nop.Services.Common;
 using Nop.Services.Configuration;
@@ -47,8 +43,6 @@ using Nop.Services.Customers;
 using Nop.Services.ExportImport;
 using Nop.Services.Helpers;
 using Nop.Services.Localization;
-using Nop.Services.Media;
-using Nop.Services.News;
 using Nop.Services.Seo;
 
 namespace Nop.Services.Installation
@@ -62,31 +56,14 @@ namespace Nop.Services.Installation
 
         private readonly INopDataProvider _dataProvider;
         private readonly INopFileProvider _fileProvider;
-        private readonly IRepository<ActivityLogType> _activityLogTypeRepository;
-        private readonly IRepository<Address> _addressRepository;
-        private readonly IRepository<Category> _categoryRepository;
-        private readonly IRepository<CategoryTemplate> _categoryTemplateRepository;
         private readonly IRepository<Country> _countryRepository;
         private readonly IRepository<Currency> _currencyRepository;
-        private readonly IRepository<Customer> _customerRepository;
-        private readonly IRepository<CustomerRole> _customerRoleRepository;
-        private readonly IRepository<DeliveryDate> _deliveryDateRepository;
         private readonly IRepository<EmailAccount> _emailAccountRepository;
         private readonly IRepository<Language> _languageRepository;
-        private readonly IRepository<Manufacturer> _manufacturerRepository;
-        private readonly IRepository<ManufacturerTemplate> _manufacturerTemplateRepository;
         private readonly IRepository<MeasureDimension> _measureDimensionRepository;
         private readonly IRepository<MeasureWeight> _measureWeightRepository;
-        private readonly IRepository<Product> _productRepository;
-        private readonly IRepository<ProductAttribute> _productAttributeRepository;
-        private readonly IRepository<ProductAvailabilityRange> _productAvailabilityRangeRepository;
-        private readonly IRepository<ProductTag> _productTagRepository;
-        private readonly IRepository<ProductTemplate> _productTemplateRepository;
-        private readonly IRepository<SpecificationAttribute> _specificationAttributeRepository;
-        private readonly IRepository<SpecificationAttributeOption> _specificationAttributeOptionRepository;
         private readonly IRepository<StateProvince> _stateProvinceRepository;
         private readonly IRepository<Store> _storeRepository;
-        private readonly IRepository<TaxCategory> _taxCategoryRepository;
         private readonly IRepository<TopicTemplate> _topicTemplateRepository;
         private readonly IRepository<UrlRecord> _urlRecordRepository;
         private readonly IWebHelper _webHelper;
@@ -97,62 +74,28 @@ namespace Nop.Services.Installation
 
         public InstallationService(INopDataProvider dataProvider,
             INopFileProvider fileProvider,
-            IRepository<ActivityLogType> activityLogTypeRepository,
-            IRepository<Address> addressRepository,
-            IRepository<Category> categoryRepository,
-            IRepository<CategoryTemplate> categoryTemplateRepository,
             IRepository<Country> countryRepository,
             IRepository<Currency> currencyRepository,
-            IRepository<Customer> customerRepository,
-            IRepository<CustomerRole> customerRoleRepository,
-            IRepository<DeliveryDate> deliveryDateRepository,
             IRepository<EmailAccount> emailAccountRepository,
             IRepository<Language> languageRepository,
-            IRepository<Manufacturer> manufacturerRepository,
-            IRepository<ManufacturerTemplate> manufacturerTemplateRepository,
             IRepository<MeasureDimension> measureDimensionRepository,
             IRepository<MeasureWeight> measureWeightRepository,
-            IRepository<Product> productRepository,
-            IRepository<ProductAttribute> productAttributeRepository,
-            IRepository<ProductAvailabilityRange> productAvailabilityRangeRepository,
-            IRepository<ProductTag> productTagRepository,
-            IRepository<ProductTemplate> productTemplateRepository,
-            IRepository<SpecificationAttribute> specificationAttributeRepository,
-            IRepository<SpecificationAttributeOption> specificationAttributeOptionRepository,
             IRepository<StateProvince> stateProvinceRepository,
             IRepository<Store> storeRepository,
-            IRepository<TaxCategory> taxCategoryRepository,
             IRepository<TopicTemplate> topicTemplateRepository,
             IRepository<UrlRecord> urlRecordRepository,
             IWebHelper webHelper)
         {
             _dataProvider = dataProvider;
             _fileProvider = fileProvider;
-            _activityLogTypeRepository = activityLogTypeRepository;
-            _addressRepository = addressRepository;
-            _categoryRepository = categoryRepository;
-            _categoryTemplateRepository = categoryTemplateRepository;
             _countryRepository = countryRepository;
             _currencyRepository = currencyRepository;
-            _customerRepository = customerRepository;
-            _customerRoleRepository = customerRoleRepository;
-            _deliveryDateRepository = deliveryDateRepository;
             _emailAccountRepository = emailAccountRepository;
             _languageRepository = languageRepository;
-            _manufacturerRepository = manufacturerRepository;
-            _manufacturerTemplateRepository = manufacturerTemplateRepository;
             _measureDimensionRepository = measureDimensionRepository;
             _measureWeightRepository = measureWeightRepository;
-            _productAttributeRepository = productAttributeRepository;
-            _productAvailabilityRangeRepository = productAvailabilityRangeRepository;
-            _productRepository = productRepository;
-            _productTagRepository = productTagRepository;
-            _productTemplateRepository = productTemplateRepository;
-            _specificationAttributeRepository = specificationAttributeRepository;
-            _specificationAttributeOptionRepository = specificationAttributeOptionRepository;
             _stateProvinceRepository = stateProvinceRepository;
             _storeRepository = storeRepository;
-            _taxCategoryRepository = taxCategoryRepository;
             _topicTemplateRepository = topicTemplateRepository;
             _urlRecordRepository = urlRecordRepository;
             _webHelper = webHelper;
@@ -242,11 +185,6 @@ namespace Nop.Services.Installation
             seName = tempSeName;
 
             return seName;
-        }
-
-        protected virtual string GetSamplesPath()
-        {
-            return _fileProvider.GetAbsolutePath(NopInstallationDefaults.SampleImagesPath);
         }
 
         /// <returns>A task that represents the asynchronous operation</returns>
@@ -1761,7 +1699,7 @@ namespace Nop.Services.Installation
                 PageSize = 10
             });
 
-            var primaryCurrency = "USD";
+            var primaryCurrency = "IRR";
             await settingService.SaveSettingAsync(new CurrencySettings
             {
                 DisplayCurrencyLabel = false,
@@ -1860,8 +1798,8 @@ namespace Nop.Services.Installation
 
             await settingService.SaveSettingAsync(new ShippingSettings
             {
-                ActiveShippingRateComputationMethodSystemNames = new List<string> { "Shipping.FixedByWeightByTotal" },
-                ActivePickupPointProviderSystemNames = new List<string> { "Pickup.PickupInStore" },
+                ActiveShippingRateComputationMethodSystemNames = new List<string> {  },
+                ActivePickupPointProviderSystemNames = new List<string> { },
                 ShipToSameAddress = true,
                 AllowPickupInStore = true,
                 DisplayPickupPointsOnMap = false,
@@ -1888,11 +1826,7 @@ namespace Nop.Services.Installation
 
             await settingService.SaveSettingAsync(new PaymentSettings
             {
-                ActivePaymentMethodSystemNames = new List<string>
-                    {
-                        "Payments.CheckMoneyOrder",
-                        "Payments.Manual"
-                    },
+                ActivePaymentMethodSystemNames = new List<string> { },
                 AllowRePostingPayments = true,
                 BypassPaymentMethodSelectionIfOnlyOne = true,
                 ShowPaymentMethodDescriptions = true,
@@ -1906,7 +1840,7 @@ namespace Nop.Services.Installation
                 TaxBasedOn = TaxBasedOn.BillingAddress,
                 TaxBasedOnPickupPointAddress = false,
                 TaxDisplayType = TaxDisplayType.ExcludingTax,
-                ActiveTaxProviderSystemName = "Tax.FixedOrByCountryStateZip",
+                // ActiveTaxProviderSystemName = "Tax.FixedOrByCountryStateZip",
                 DefaultTaxAddressId = 0,
                 DisplayTaxSuffix = false,
                 DisplayTaxRates = false,
@@ -2022,7 +1956,7 @@ namespace Nop.Services.Installation
 
             await settingService.SaveSettingAsync(new WidgetSettings
             {
-                ActiveWidgetSystemNames = new List<string> { "Widgets.NivoSlider" }
+                ActiveWidgetSystemNames = new List<string> {}
             });
 
             await settingService.SaveSettingAsync(new DisplayDefaultMenuItemSettings
@@ -3170,57 +3104,7 @@ namespace Nop.Services.Installation
 
             await InsertInstallationDataAsync(tasks);
         }
-
-        /// <returns>A task that represents the asynchronous operation</returns>
-        protected virtual async Task InstallReturnRequestReasonsAsync()
-        {
-            var returnRequestReasons = new List<ReturnRequestReason>
-            {
-                new ReturnRequestReason
-                {
-                    Name = "Received Wrong Product",
-                    DisplayOrder = 1
-                },
-                new ReturnRequestReason
-                {
-                    Name = "Wrong Product Ordered",
-                    DisplayOrder = 2
-                },
-                new ReturnRequestReason
-                {
-                    Name = "There Was A Problem With The Product",
-                    DisplayOrder = 3
-                }
-            };
-
-            await InsertInstallationDataAsync(returnRequestReasons);
-        }
-
-        /// <returns>A task that represents the asynchronous operation</returns>
-        protected virtual async Task InstallReturnRequestActionsAsync()
-        {
-            var returnRequestActions = new List<ReturnRequestAction>
-            {
-                new ReturnRequestAction
-                {
-                    Name = "Repair",
-                    DisplayOrder = 1
-                },
-                new ReturnRequestAction
-                {
-                    Name = "Replacement",
-                    DisplayOrder = 2
-                },
-                new ReturnRequestAction
-                {
-                    Name = "Store Credit",
-                    DisplayOrder = 3
-                }
-            };
-
-            await InsertInstallationDataAsync(returnRequestActions);
-        }
-
+        
         #endregion
 
         #region Methods
@@ -3254,8 +3138,6 @@ namespace Nop.Services.Installation
             await InstallCategoryTemplatesAsync();
             await InstallManufacturerTemplatesAsync();
             await InstallScheduleTasksAsync();
-            await InstallReturnRequestReasonsAsync();
-            await InstallReturnRequestActionsAsync();
         }
         
         #endregion
