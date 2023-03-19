@@ -268,7 +268,7 @@ namespace Nop.Services.Installation
                 },
                 new MeasureWeight
                 {
-                    Name = "kg(s)",
+                    Name = "کیلوگرم",
                     SystemKeyword = "kg",
                     Ratio = isMetric ? 1M : 0.45359237M,
                     DisplayOrder = isMetric ? 0 : 1
@@ -372,182 +372,22 @@ namespace Nop.Services.Installation
         protected virtual async Task InstallCurrenciesAsync(CultureInfo cultureInfo, RegionInfo regionInfo)
         {
             //set some currencies with a rate against the USD
-            var defaultCurrencies = new List<string>() { "USD", "AUD", "GBP", "CAD", "CNY", "EUR", "HKD", "JPY", "RUB", "SEK", "INR" };
             var currencies = new List<Currency>
             {
-                // new Currency
-                // {
-                //     Name = "US Dollar",
-                //     CurrencyCode = "USD",
-                //     Rate = 1,
-                //     DisplayLocale = "en-US",
-                //     CustomFormatting = string.Empty,
-                //     Published = true,
-                //     DisplayOrder = 1,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Australian Dollar",
-                //     CurrencyCode = "AUD",
-                //     Rate = 1.34M,
-                //     DisplayLocale = "en-AU",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 2,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "British Pound",
-                //     CurrencyCode = "GBP",
-                //     Rate = 0.75M,
-                //     DisplayLocale = "en-GB",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 3,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Canadian Dollar",
-                //     CurrencyCode = "CAD",
-                //     Rate = 1.32M,
-                //     DisplayLocale = "en-CA",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 4,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Chinese Yuan Renminbi",
-                //     CurrencyCode = "CNY",
-                //     Rate = 6.43M,
-                //     DisplayLocale = "zh-CN",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 5,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Euro",
-                //     CurrencyCode = "EUR",
-                //     Rate = 0.86M,
-                //     DisplayLocale = string.Empty,
-                //     CustomFormatting = $"{"\u20ac"}0.00", //euro symbol
-                //     Published = false,
-                //     DisplayOrder = 6,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Hong Kong Dollar",
-                //     CurrencyCode = "HKD",
-                //     Rate = 7.84M,
-                //     DisplayLocale = "zh-HK",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 7,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Japanese Yen",
-                //     CurrencyCode = "JPY",
-                //     Rate = 110.45M,
-                //     DisplayLocale = "ja-JP",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 8,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Russian Rouble",
-                //     CurrencyCode = "RUB",
-                //     Rate = 63.25M,
-                //     DisplayLocale = "ru-RU",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 9,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // },
-                // new Currency
-                // {
-                //     Name = "Swedish Krona",
-                //     CurrencyCode = "SEK",
-                //     Rate = 8.80M,
-                //     DisplayLocale = "sv-SE",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 10,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding1
-                // },
-                // new Currency
-                // {
-                //     Name = "Indian Rupee",
-                //     CurrencyCode = "INR",
-                //     Rate = 68.03M,
-                //     DisplayLocale = "en-IN",
-                //     CustomFormatting = string.Empty,
-                //     Published = false,
-                //     DisplayOrder = 12,
-                //     CreatedOnUtc = DateTime.UtcNow,
-                //     UpdatedOnUtc = DateTime.UtcNow,
-                //     RoundingType = RoundingType.Rounding001
-                // }
+                new Currency
+                {
+                    Name = "تومان",
+                    CurrencyCode = regionInfo.ISOCurrencySymbol,
+                    Rate = 1,
+                    DisplayLocale = cultureInfo.Name,
+                    CustomFormatting = string.Empty,
+                    Published = true,
+                    DisplayOrder = 0,
+                    CreatedOnUtc = DateTime.UtcNow,
+                    UpdatedOnUtc = DateTime.UtcNow,
+                    RoundingType = RoundingType.Rounding001
+                }
             };
-
-            //set additional currency
-            if (cultureInfo != null && regionInfo != null)
-            {
-                // if (!defaultCurrencies.Contains(regionInfo.ISOCurrencySymbol))
-                // {
-                // تومان
-                    currencies.Add(new Currency
-                    {
-                        Name = "تومان",
-                        CurrencyCode = regionInfo.ISOCurrencySymbol,
-                        Rate = 1,
-                        DisplayLocale = cultureInfo.Name,
-                        CustomFormatting = string.Empty,
-                        Published = true,
-                        DisplayOrder = 0,
-                        CreatedOnUtc = DateTime.UtcNow,
-                        UpdatedOnUtc = DateTime.UtcNow,
-                        RoundingType = RoundingType.Rounding001
-                    });
-                // }
-
-                // foreach (var currency in currencies.Where(currency => currency.CurrencyCode == regionInfo.ISOCurrencySymbol))
-                // {
-                //     currency.Published = true;
-                //     currency.DisplayOrder = 0;
-                // }
-            }
-
 
             await InsertInstallationDataAsync(currencies);
         }

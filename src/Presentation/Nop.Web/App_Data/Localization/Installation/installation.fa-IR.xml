@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Language Name="فارسی" IsDefault="false" IsRightToLeft="true">
+<Language Name="فارسی" IsDefault="true" IsRightToLeft="true">
   <LocaleResource Name="AdminEmail">
     <Value>ایمیل کاربری مدیر</Value>
   </LocaleResource>

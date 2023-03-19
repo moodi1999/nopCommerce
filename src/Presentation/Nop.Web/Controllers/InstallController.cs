@@ -86,16 +86,12 @@ namespace Nop.Web.Controllers
 
         private InstallModel PrepareLanguageList(InstallModel model)
         {
-            foreach (var lang in _locService.Value.GetAvailableLanguages())
+            model.AvailableLanguages.Add(new SelectListItem
             {
-                model.AvailableLanguages.Add(new SelectListItem
-                {
-                    Value = Url.Action("ChangeLanguage", "Install", new { language = lang.Code }),
-                    Text = lang.Name,
-                    Selected = _locService.Value.GetCurrentLanguage().Code == lang.Code
-                });
-            }
-
+                Value = Url.Action("ChangeLanguage", "Install"),
+                Text = "فارسی",
+                Selected = _locService.Value.GetCurrentLanguage().Code == "fa"
+            });
             return model;
         }
 
@@ -148,10 +144,18 @@ namespace Nop.Web.Controllers
 
             model.DisableSampleDataOption = _appSettings.Get<InstallationConfig>().DisableSampleData;
             model.InstallRegionalResources = _appSettings.Get<InstallationConfig>().InstallRegionalResources;
+            // TODO: Sunday, March 19, 2023, move to Installation Cnofig
+            model.CreateDatabaseIfNotExists = true;
+            model.DataProvider = DataProviderType.SqlServer;
+            model.DatabaseName = "nop462";
+            model.ServerName = "localhost";
+            model.IntegratedSecurity = true;
 
             PrepareAvailableDataProviders(model);
             PrepareLanguageList(model);
             PrepareCountryList(model);
+
+            model.Country = model.AvailableCountries.Single().Value;
 
             //Consider granting access rights to the resource to the ASP.NET request identity. 
             //ASP.NET has a base process identity 
@@ -260,9 +264,6 @@ namespace Nop.Web.Controllers
 
                 //now resolve installation service
                 await _installationService.Value.InstallRequiredDataAsync(model.AdminEmail, model.AdminPassword, languagePackInfo, regionInfo, cultureInfo);
-
-                // if (model.InstallSampleData)
-                    // await _installationService.Value.InstallSampleDataAsync(model.AdminEmail);
 
                 //prepare plugins to install
                 _pluginService.Value.ClearInstalledPluginsList();

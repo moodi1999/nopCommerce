@@ -94,16 +94,16 @@ namespace Nop.Web.Infrastructure.Installation
             if (language != null)
                 return language;
 
-            //let's find by current browser culture
-            if (httpContext.Request.Headers.TryGetValue(HeaderNames.AcceptLanguage, out var userLanguages))
-            {
-                var userLanguage = userLanguages.FirstOrDefault()?.Split(',').FirstOrDefault() ?? string.Empty;
-                if (!string.IsNullOrEmpty(userLanguage))
-                {
-                    //right. we do "StartsWith" (not "Equals") because we have shorten codes (not full culture names)
-                    language = availableLanguages.FirstOrDefault(l => userLanguage.StartsWith(l.Code, StringComparison.InvariantCultureIgnoreCase));
-                }
-            }
+            // //let's find by current browser culture
+            // if (httpContext.Request.Headers.TryGetValue(HeaderNames.AcceptLanguage, out var userLanguages))
+            // {
+            //     var userLanguage = userLanguages.FirstOrDefault()?.Split(',').FirstOrDefault() ?? string.Empty;
+            //     if (!string.IsNullOrEmpty(userLanguage))
+            //     {
+            //         //right. we do "StartsWith" (not "Equals") because we have shorten codes (not full culture names)
+            //         language = availableLanguages.FirstOrDefault(l => userLanguage.StartsWith(l.Code, StringComparison.InvariantCultureIgnoreCase));
+            //     }
+            // }
 
             if (language != null)
                 return language;

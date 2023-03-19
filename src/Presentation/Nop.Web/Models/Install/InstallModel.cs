@@ -7,13 +7,6 @@ namespace Nop.Web.Models.Install
 {
     public partial record InstallModel : INopConnectionStringInfo
     {
-        public InstallModel()
-        {
-            AvailableLanguages = new List<SelectListItem>();
-            AvailableDataProviders = new List<SelectListItem>();
-            AvailableCountries = new List<SelectListItem>();
-        }
-
         [DataType(DataType.EmailAddress)]
         public string AdminEmail { get; set; }
         [DataType(DataType.Password)]
@@ -41,15 +34,15 @@ namespace Nop.Web.Models.Install
         public string Password { get; set; }
         public string ConnectionString { get; set; }
 
-        public List<SelectListItem> AvailableLanguages { get; set; }
+        public List<SelectListItem> AvailableLanguages { get; set; } = new();
 
-        public List<SelectListItem> AvailableCountries { get; set; }
+        public List<SelectListItem> AvailableCountries { get; set; } = new();
 
         public DataProviderType DataProvider { get; set; }
 
         public string Country { get; set; }
 
-        public List<SelectListItem> AvailableDataProviders { get; set; }
+        public List<SelectListItem> AvailableDataProviders { get; set; } = new();
         public IDictionary<string, string> RawDataSettings => new Dictionary<string, string>();
 
         public string RestartUrl { get; set; }
