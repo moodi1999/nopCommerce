@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Net.Http.Headers;
 using Newtonsoft.Json;
 using Nop.Core;
 using Nop.Core.Caching;
@@ -147,7 +148,6 @@ namespace Nop.Web.Controllers
             // TODO: Sunday, March 19, 2023, move to Installation Cnofig
             model.CreateDatabaseIfNotExists = true;
             model.DataProvider = DataProviderType.SqlServer;
-            model.DatabaseName = "nop462";
             model.ServerName = "localhost";
             model.IntegratedSecurity = true;
 
@@ -155,6 +155,7 @@ namespace Nop.Web.Controllers
             PrepareLanguageList(model);
             PrepareCountryList(model);
 
+            model.DatabaseName = HttpContext.Request.Headers[HeaderNames.Host];
             model.Country = model.AvailableCountries.Single().Value;
 
             //Consider granting access rights to the resource to the ASP.NET request identity. 
