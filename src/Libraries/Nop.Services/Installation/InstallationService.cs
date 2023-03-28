@@ -376,11 +376,11 @@ namespace Nop.Services.Installation
             {
                 new Currency
                 {
-                    Name = "تومان",
-                    CurrencyCode = regionInfo.ISOCurrencySymbol,
+                    Name = NopCommonDefaults.DefaultCurrencyCode,
+                    CurrencyCode = NopCommonDefaults.DefaultCurrencyCode,
                     Rate = 1,
                     DisplayLocale = cultureInfo.Name,
-                    CustomFormatting = string.Empty,
+                    CustomFormatting = "#,0.## تومان",
                     Published = true,
                     DisplayOrder = 0,
                     CreatedOnUtc = DateTime.UtcNow,
@@ -1539,7 +1539,7 @@ namespace Nop.Services.Installation
                 PageSize = 10
             });
 
-            var primaryCurrency = "IRR";
+            var primaryCurrency = NopCommonDefaults.DefaultCurrencyCode;
             await settingService.SaveSettingAsync(new CurrencySettings
             {
                 DisplayCurrencyLabel = false,

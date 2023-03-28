@@ -88,6 +88,11 @@ namespace Nop.Services.Common
         /// Gets default CultureInfo 
         /// </summary>
         public static string DefaultLanguageCulture => "fa-IR";
+        
+        /// <summary>
+        /// Gets default CultureInfo 
+        /// </summary>
+        public static string DefaultCurrencyCode => "تومان";
 
         /// <summary>
         /// Gets minimal progress of language pack translation to download and install
