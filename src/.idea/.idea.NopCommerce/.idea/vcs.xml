@@ -8,5 +8,17 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/Nop.Plugin.Misc.ConfigThemes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/citydropdown" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/customsignupsigninplugin/" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/easyadmin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/enamadplugin/" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/instagrampost/" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/nop.jalalicalendar" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/novinshipping/" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/paymentplugin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/paymentrecipt/" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/skiporderconfirmstep" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Plugins/smsplugin" vcs="Git" />
   </component>
 </project>

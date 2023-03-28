@@ -5629,13 +5629,13 @@
     <LocaleResource Name="admin.configuration.appsettings.common.staticfilescachecontrol.hint">
         <Value>مقدار هدر "کنترل کش" را برای محتوای استاتیک تعیین کنید (برحسب ثانیه).</Value>
     </LocaleResource>
-    <LocaleResource Name="admin.configuration.appsettings.common.supportpreviousnopcommerceversions">
-        <Value>پشتیبانی از نسخه های قبلی ناپ کامرس</Value>
+    <LocaleResource Name="admin.configuration.appsettings.common.supportpreviousechoShopversions">
+        <Value>پشتیبانی از نسخه های قبلی اکو شاپ</Value>
     </LocaleResource>
-    <LocaleResource Name="admin.configuration.appsettings.common.supportpreviousnopcommerceversions.hint">
-        <Value>مقداری را مشخص کنید که نشان دهد آیا باید از نسخه های قبلی ناپ کامرس پشتیبانی کنیم (این می تواند عملکرد را
-            کمی بهبود بخشد). در این حالت ، URL های قدیمی (از نسخه های قبلی ناپ کامرس) به آدرس های جدید هدایت می شوند.
-            فقط در صورتی که از یکی از نسخه های قبلی ناپ کامرس ارتقاء داده اید ، آن را فعال کنید.
+    <LocaleResource Name="admin.configuration.appsettings.common.supportpreviousechoShopversions.hint">
+        <Value>مقداری را مشخص کنید که نشان دهد آیا باید از نسخه های قبلی اکو شاپ پشتیبانی کنیم (این می تواند عملکرد را
+            کمی بهبود بخشد). در این حالت ، URL های قدیمی (از نسخه های قبلی اکو شاپ) به آدرس های جدید هدایت می شوند.
+            فقط در صورتی که از یکی از نسخه های قبلی اکو شاپ ارتقاء داده اید ، آن را فعال کنید.
             .
         </Value>
     </LocaleResource>
@@ -5859,7 +5859,7 @@
     </LocaleResource>
     <LocaleResource Name="admin.configuration.appsettings.weboptimizer.enablecssbundling.hint">
         <Value>Enable to combine (bundle) multiple CSS files into a single file. Do not enable if you're running
-            nopCommerce in IIS virtual directory. Currently it doesn't support web farms. And please note it could take
+            echoShop in IIS virtual directory. Currently it doesn't support web farms. And please note it could take
             up to two minutes for changes to existing files to be applied (when enabled).
         </Value>
     </LocaleResource>
@@ -6680,7 +6680,7 @@
         <Value>تنظیم</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.payment.methods.downloadmoreplugins">
-        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://nopshop.ir/online-payment-gateway" target="_blank"&gt;فروشگاه
+        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://echoshop.ir/online-payment-gateway" target="_blank"&gt;فروشگاه
             ناپ شاپ&lt;/a&gt; بیابید
         </Value>
     </LocaleResource>
@@ -6742,7 +6742,7 @@
         <Value>نصب دستی افزونه</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.plugins.description.downloadmoreplugins">
-        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://nopshop.ir/plugin" target="_blank"&gt;فروشگاه ناپ
+        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://echoshop.ir/plugin" target="_blank"&gt;فروشگاه ناپ
             شاپ&lt;/a&gt; بیابید
         </Value>
     </LocaleResource>
@@ -9014,7 +9014,7 @@
     </LocaleResource>
     <LocaleResource Name="admin.configuration.settings.generalcommon.captcha.instructions">
         <Value>CAPTCHA is a program that can tell whether it is a human or a computer is trying to access your web site.
-            nopCommerce uses &lt;a href="http://www.google.com/recaptcha" target="_blank"&gt;reCAPTCHA&lt;/a&gt; by
+            echoShop uses &lt;a href="http://www.google.com/recaptcha" target="_blank"&gt;reCAPTCHA&lt;/a&gt; by
             Google. reCAPTCHA is a free service that protects your website from spam and abuse. reCAPTCHA uses an
             advanced risk analysis engine and adaptive challenges to keep automated software from engaging in abusive
             activities on your site. It does this while letting your valid users pass through with ease.
@@ -9228,12 +9228,12 @@
         <Value>قالب پیش فرض فروشگاه</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.settings.generalcommon.defaultstoretheme.getmore">
-        <Value>شما می نوانید قالب های بیشتری را در &lt;a href="https://nopshop.ir/nopcommerce-themes" target="_blank"&gt;قالب
-            های ناپ شاپ&lt;/a&gt; بیایدhttps://nopshop.ir/Admin/Language/Edit/2#
+        <Value>شما می نوانید قالب های بیشتری را در &lt;a href="https://echoshop.ir/echoShop-themes" target="_blank"&gt;قالب
+            های ناپ شاپ&lt;/a&gt; بیایدhttps://echoshop.ir/Admin/Language/Edit/2#
         </Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.settings.generalcommon.defaultstoretheme.hint">
-        <Value>تم عمومی فروشگاه ، شما میتوانید تم ها را از صفحه افزونه ها در سایت www.nopshop.ir دانلود کنید</Value>
+        <Value>تم عمومی فروشگاه ، شما میتوانید تم ها را از صفحه افزونه ها در سایت www.echoshop.ir دانلود کنید</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.settings.generalcommon.defaulttitle">
         <Value>عنوان پیش فرض</Value>
@@ -11953,7 +11953,7 @@
         <Value>تنظیم</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.shipping.providers.downloadmoreplugins">
-        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://nopshop.ir/plugin" target="_blank"&gt;فروشگاه ناپ
+        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://echoshop.ir/plugin" target="_blank"&gt;فروشگاه ناپ
             شاپ&lt;/a&gt; بیابید.
         </Value>
     </LocaleResource>
@@ -12233,7 +12233,7 @@
         <Value>تنظیم</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configuration.tax.providers.downloadmoreplugins">
-        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://nopshop.ir/plugin" target="_blank"&gt;فروشگاه ناپ
+        <Value>می توانید افزونه های بیشتری را در &lt;a href="https://echoshop.ir/plugin" target="_blank"&gt;فروشگاه ناپ
             شاپ&lt;/a&gt; بیابید
         </Value>
     </LocaleResource>
@@ -12502,7 +12502,7 @@
     </LocaleResource>
     <LocaleResource Name="admin.configurationsteps.personalizestore.theme.text">
         <Value>در این صفحه می توانید تم فروشگاه خود را تنظیم کنید. بعد از انتخاب تم از سایت ناپ شاپ &lt;a
-            href="https://nopshop.ir/nopcommerce-themes" target="_blank"&gt;ناپ شاپ&lt;/a&gt;, آنرا مطابق زیر آپلود
+            href="https://echoshop.ir/echoShop-themes" target="_blank"&gt;ناپ شاپ&lt;/a&gt;, آنرا مطابق زیر آپلود
             کنید: &lt;a href="{1}" target="_blank"&gt;این دستورالعمل ها&lt;/a&gt;. سپس این صفحه را رفرش کنید ، و همه تم
             های در دسترس را مشاهده خواهید کرد. یکی را انتخاب کنید و روی دکمه &lt;b&gt;ذخیره&lt;/b&gt; در بالا سمت راست
             کلیک کنید.
@@ -12515,7 +12515,7 @@
         <Value>شخصی سازی فروشگاه شما</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configurationsteps.poweredby.description">
-        <Value>لینک "Powered by nopCommerce" را از فوتر سایت حذف کنید</Value>
+        <Value>لینک "Powered by echoShop" را از فوتر سایت حذف کنید</Value>
     </LocaleResource>
     <LocaleResource Name="admin.configurationsteps.poweredby.title">
         <Value>“Powered by” لینک</Value>
@@ -12733,7 +12733,7 @@
     </LocaleResource>
     <LocaleResource Name="admin.configurationsteps.taxproviders.taxproviders.text">
         <Value>شما می توانید کلیه ارائه دهندگان مالیات (افزونه ها) مجاز به استفاده در فروشگاه خود را در این صفحه مشاهده
-            کنید. با این حال ، شما همیشه می توانید چیزهای بیشتری در &lt;a href="https://nopshop.ir" target="_blank"&gt;فروشگاه
+            کنید. با این حال ، شما همیشه می توانید چیزهای بیشتری در &lt;a href="https://echoshop.ir" target="_blank"&gt;فروشگاه
             ناپ شاپ&lt;/a&gt; پیدا کنید.
         </Value>
     </LocaleResource>
@@ -15388,7 +15388,7 @@
         <Value>بیشتر بدانید: &lt;a target="_blank" href="{0}"&gt;تالارهای گفتگو&lt;/a&gt;</Value>
     </LocaleResource>
     <LocaleResource Name="admin.documentation.reference.gdpr">
-        <Value>بیشتر بدانید: &lt;a target="_blank" href="{0}"&gt;GDPR در ناپ کامرس&lt;/a&gt;</Value>
+        <Value>بیشتر بدانید: &lt;a target="_blank" href="{0}"&gt;GDPR در اکو شاپ&lt;/a&gt;</Value>
     </LocaleResource>
     <LocaleResource Name="admin.documentation.reference.giftcards">
         <Value>بیشتر بدانید: &lt;a target="_blank" href="{0}"&gt;کارت های هدیه&lt;/a&gt;</Value>
@@ -15436,7 +15436,7 @@
         <Value>بیشتر بدانید: &lt;a target="_blank" href="{0}"&gt;نقاط خرید&lt;/a&gt;</Value>
     </LocaleResource>
     <LocaleResource Name="admin.documentation.reference.plugins">
-        <Value>بیشتر بدانید: &lt;a target="_blank" href="https://nopshop.ir/plugin"&gt;پلاگین ها در ناپ شاپ&lt;/a&gt;
+        <Value>بیشتر بدانید: &lt;a target="_blank" href="https://echoshop.ir/plugin"&gt;پلاگین ها در ناپ شاپ&lt;/a&gt;
         </Value>
     </LocaleResource>
     <LocaleResource Name="admin.documentation.reference.polls">
@@ -15587,10 +15587,10 @@
         <Value>Enabled Anti-bot protection.</Value>
     </LocaleResource>
     <LocaleResource Name="admin.foxnetsoft.plugin.misc.antibot.enablelogging">
-        <Value>Enable Logging (nopcommerce log)</Value>
+        <Value>Enable Logging (echoShop log)</Value>
     </LocaleResource>
     <LocaleResource Name="admin.foxnetsoft.plugin.misc.antibot.enablelogging.hint">
-        <Value>Store information about blocking customers in nopcommerce log.</Value>
+        <Value>Store information about blocking customers in echoShop log.</Value>
     </LocaleResource>
     <LocaleResource Name="admin.foxnetsoft.plugin.misc.antibot.getlogfile">
         <Value>Download the log-file</Value>
@@ -15680,8 +15680,8 @@
     <LocaleResource Name="admin.foxnetsoft.plugin.misc.webpimages.menu.name">
         <Value>WebP Images</Value>
     </LocaleResource>
-    <LocaleResource Name="admin.foxnetsoft.plugin.misc.webpimages.restartnopcommerce">
-        <Value>Don't forget to restart your nopcommerce when you changed settings.</Value>
+    <LocaleResource Name="admin.foxnetsoft.plugin.misc.webpimages.restartechoShop">
+        <Value>Don't forget to restart your echoShop when you changed settings.</Value>
     </LocaleResource>
     <LocaleResource Name="admin.foxnetsoft.plugin.misc.webpimages.serialnumber">
         <Value>Serial number</Value>
@@ -16060,8 +16060,8 @@
     <LocaleResource Name="admin.menu.search">
         <Value>جستجو</Value>
     </LocaleResource>
-    <LocaleResource Name="admin.nopcommercenews">
-        <Value>اخبار ناپ کامرس</Value>
+    <LocaleResource Name="admin.echoShopnews">
+        <Value>اخبار اکو شاپ</Value>
     </LocaleResource>
     <LocaleResource Name="admin.nopshop.menu">
         <Value>ناپ شاپ</Value>
@@ -19097,14 +19097,14 @@
     <LocaleResource Name="admin.system.log.list.premiumsupport">
         <Value>سوال دارید یا به کمک احتیاج دارید؟ پشتیبانی اختصاصی از تیم ناپ شاپ را با پاسخ تضمینی در عرض 24 ساعت
             دریافت کنید. لطفاً درباره خدمات پشتیبانی برتر ما در &lt;a
-            href="https://nopshop.ir/one-year-nopcommerce-support" target="_blank"&gt;پشتیبانی ناپ شاپ&lt;/a&gt; اطلاعات
+            href="https://echoshop.ir/one-year-echoShop-support" target="_blank"&gt;پشتیبانی ناپ شاپ&lt;/a&gt; اطلاعات
             بیشتری کسب کنید.
         </Value>
     </LocaleResource>
     <LocaleResource Name="admin.system.log.premiumsupport">
         <Value>سوال دارید یا به کمک احتیاج دارید؟ پشتیبانی اختصاصی از تیم ناپ شاپ را با پاسخ تضمینی ظرف 24 ساعت دریافت
             کنید. لطفاً در مورد خدمات پشتیبانی برتر ما &lt;a
-            href="https://nopshop.ir/search?q=%D9%BE%D8%B4%D8%AA%DB%8C%D8%A8%D8%A7%D9%86%DB%8C" target="_blankhere&gt;here&lt;/a&gt;
+            href="https://echoshop.ir/search?q=%D9%BE%D8%B4%D8%AA%DB%8C%D8%A8%D8%A7%D9%86%DB%8C" target="_blankhere&gt;here&lt;/a&gt;
             اطلاعات بیشتری کسب کنید.
         </Value>
     </LocaleResource>
@@ -19817,7 +19817,7 @@
         <Value>حساب "{0}" امکان ویرایش دسترسی روی فایل {1} را ندارد، لطفا این دسترسی ها را تنظیم کنید</Value>
     </LocaleResource>
     <LocaleResource Name="admin.system.warnings.incompatibleplugin">
-        <Value>افزونه '{0}' با این نسخه از ناپ کامرس ناسازگار است . آن را حذف کنید یا با آخرین نسخه بروز رسانی نمایید.
+        <Value>افزونه '{0}' با این نسخه از اکو شاپ ناسازگار است . آن را حذف کنید یا با آخرین نسخه بروز رسانی نمایید.
         </Value>
     </LocaleResource>
     <LocaleResource Name="admin.system.warnings.machinekey.notspecified">
@@ -27442,7 +27442,7 @@
     </LocaleResource>
     <LocaleResource Name="plugins.misc.sendinblue.activatesmtp">
         <Value>در حساب Sendinblue شما ، SMTP هنوز فعال نشده است. برای درخواست فعال سازی آن ، کافی است به تیم پشتیبانی ما
-            از طریق contact@sendinblue.com ایمیل ارسال کنید و ذکر کنید که از SMTP با پلاگین nopCommerce استفاده خواهید
+            از طریق contact@sendinblue.com ایمیل ارسال کنید و ذکر کنید که از SMTP با پلاگین echoShop استفاده خواهید
             کرد.
         </Value>
     </LocaleResource>
@@ -27492,7 +27492,7 @@
         <Value>لیست</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.misc.sendinblue.fields.list.hint">
-        <Value>لیست Sendinblue را انتخاب کنید که در آن مشترکین خبرنامه ناپ کامرس شما اضافه می شوند.</Value>
+        <Value>لیست Sendinblue را انتخاب کنید که در آن مشترکین خبرنامه اکو شاپ شما اضافه می شوند.</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.misc.sendinblue.fields.makey">
         <Value>Tracker ID</Value>
@@ -27828,7 +27828,7 @@
     </LocaleResource>
     <LocaleResource Name="plugins.misc.zettle.configuration.fields.deletebeforeimport.hint">
         <Value>Determine whether to delete existing library items before importing products to PayPal Zettle. It may be
-            required on the first synchronization if you want to keep only products from nopCommerce catalog. After
+            required on the first synchronization if you want to keep only products from echoShop catalog. After
             that, it's recommended to disable this setting.
         </Value>
     </LocaleResource>
@@ -27845,7 +27845,7 @@
         <Value>Add discounts</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.misc.zettle.configuration.fields.discountsyncenabled.hint">
-        <Value>Determine whether to import discounts from nopCommerce catalog (assigned to order subtotal only) to
+        <Value>Determine whether to import discounts from echoShop catalog (assigned to order subtotal only) to
             PayPal Zettle.
         </Value>
     </LocaleResource>
@@ -27861,7 +27861,7 @@
         <Value>Inventory tracking enabled</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.misc.zettle.configuration.fields.inventorytrackingenabled.hint">
-        <Value>Determine whether to track inventory balance for products by default. The product in nopCommerce catalog
+        <Value>Determine whether to track inventory balance for products by default. The product in echoShop catalog
             must also have the appropriate inventory method selected. Tracking is enabled on sync. Then when tracking is
             enabled for a product, the inventory data on both sides is updated immediately and doesn't require
             synchronization.
@@ -28515,7 +28515,7 @@
     <LocaleResource Name="plugins.nopshop.solr.search.fields.includeexcludestockavailability.hint">
         <Value>Select whether to include or exclude out-of-stock products in product list. If you select Include
             Out-of-stock products, then out of stock products will be included in product listing (which is also a
-            default behaviour for nopCommerce) and a filter to Exclude out-of-stock products will be offered. If you
+            default behaviour for echoShop) and a filter to Exclude out-of-stock products will be offered. If you
             select Exclude Out-of-stock products, then by default out of stock products will be excluded in product
             listing and a filter to Include out-of-stock products will be offered.
         </Value>
@@ -29259,13 +29259,13 @@
         <Value>نام کاربری</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.mellat.fields.username.hint">
-        <Value>نام کاربری. nopShop.ir</Value>
+        <Value>نام کاربری. echoshop.ir</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.mellat.fields.userpassword">
         <Value>رمز عبور</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.mellat.fields.userpassword.hint">
-        <Value>رمز عبور. nopShop.ir</Value>
+        <Value>رمز عبور. echoshop.ir</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.mellat.instructions">
         <Value>درگاه پرداخت اینترنتی بانک ملت</Value>
@@ -30251,19 +30251,19 @@
 
             &lt;div style="margin: 0 0 10px;"&gt;
             &lt;em&gt;&lt;b&gt;Warning: Square sandbox data has been changed. For more information visit our &lt;a
-            href="https://docs.nopcommerce.com/user-guide/configuring/settingup/payments/methods/square.html"
+            href="https://docs.echoShop.com/user-guide/configuring/settingup/payments/methods/square.html"
             target="_blank"&gt;documentation&lt;/a&gt;.&lt;/em&gt;&lt;/b&gt;&lt;br /&gt;
             &lt;br /&gt;
             For plugin configuration, follow these steps:&lt;br /&gt;
             &lt;br /&gt;
             1. You will need a Square Merchant account. If you don't already have one, you can sign up here: &lt;a
-            href="http://squ.re/nopcommerce" target="_blank"&gt;https://squareup.com/signup/&lt;/a&gt;&lt;br /&gt;
+            href="http://squ.re/echoShop" target="_blank"&gt;https://squareup.com/signup/&lt;/a&gt;&lt;br /&gt;
             2. Sign in to 'Square Merchant Dashboard'. Go to 'Account &amp; Settings' &amp;#8594; 'Locations' tab and
             create new location.&lt;br /&gt;
             &lt;em&gt; Important: Your merchant account must have at least one location with enabled credit card
             processing. Please refer to the Square customer support if you have any questions about how to set this up.&lt;/em&gt;&lt;br
             /&gt;
-            3. Sign in to your 'Square Developer Dashboard' at &lt;a href="http://squ.re/nopcommerce1" target="_blank"&gt;https://connect.squareup.com/apps&lt;/a&gt;;
+            3. Sign in to your 'Square Developer Dashboard' at &lt;a href="http://squ.re/echoShop1" target="_blank"&gt;https://connect.squareup.com/apps&lt;/a&gt;;
             use the same login credentials as your merchant account.&lt;br /&gt;
             4. Click on 'Create Your First Application' and fill in the 'Application Name'. This name is for you to
             recognize the application in the developer portal and is not used by the plugin. Click 'Create Application'
@@ -30419,7 +30419,7 @@
             For plugin configuration follow these steps:
             &lt;ul style="list-style-type:none;"&gt;
             &lt;li&gt;
-            1. Sign up for a &lt;a href="https://www.worldpay.us/Partner/nopcommerce" target="_blank"&gt;Merchant
+            1. Sign up for a &lt;a href="https://www.worldpay.us/Partner/echoShop" target="_blank"&gt;Merchant
             Account&lt;/a&gt;
             &lt;/li&gt;
             &lt;li&gt;
@@ -30519,7 +30519,7 @@
         <Value>شماره ترمینال</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.yekpay.fields.terminalid.hint">
-        <Value>شماره ترمینال بانک ملت. nopShop.ir</Value>
+        <Value>شماره ترمینال بانک ملت. echoshop.ir</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.yekpay.fields.toman">
         <Value>استفاده از تومان</Value>
@@ -30531,13 +30531,13 @@
         <Value>نام کاربری</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.yekpay.fields.username.hint">
-        <Value>نام کاربری. nopShop.ir</Value>
+        <Value>نام کاربری. echoshop.ir</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.yekpay.fields.userpassword">
         <Value>رمز عبور</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.yekpay.fields.userpassword.hint">
-        <Value>رمز عبور. nopShop.ir</Value>
+        <Value>رمز عبور. echoshop.ir</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.payments.yekpay.instructions">
         <Value>درگاه پرداخت اینترنتی بانک ملت</Value>
@@ -32817,7 +32817,7 @@
         <Value>کد سیستم</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.widgets.nopshopamazingoffer.nopshop">
-        <Value>Nop Shop - nopshop.ir</Value>
+        <Value>Echo Shop - echoshop.ir</Value>
     </LocaleResource>
     <LocaleResource Name="plugins.widgets.nopshopamazingoffer.productpriceupdate.error">
         <Value>خطا در بروزرسانی قیمت محصول برای پیشنهاد شگفتانه</Value>
@@ -33723,7 +33723,7 @@
         <Value>انتخابگر عکس پیش فرض جانگهدار</Value>
     </LocaleResource>
     <LocaleResource Name="sevenspikes.cloudzoom.admin.settings.defaultimagecontainerselector.hint">
-        <Value>انتخابگر برای عکس پیش فرض جانگهدار ناپ کامرس . جانگهدار حذف خواهد شد و تصویر با امکان بزرگنمایی بجای آن
+        <Value>انتخابگر برای عکس پیش فرض جانگهدار اکو شاپ . جانگهدار حذف خواهد شد و تصویر با امکان بزرگنمایی بجای آن
             نمایش داده خواهد شد.
         </Value>
     </LocaleResource>
@@ -35306,7 +35306,7 @@
         <Value>Image size (pixels)</Value>
     </LocaleResource>
     <LocaleResource Name="sevenspikes.jcarousel.admin.settings.imagesize.hint">
-        <Value>Specifies a custom JCarousel image size. If set to 0 the image size will be the default nopcommerce
+        <Value>Specifies a custom JCarousel image size. If set to 0 the image size will be the default echoShop
             picture tumbnail image size.
         </Value>
     </LocaleResource>
@@ -40263,12 +40263,12 @@
         <Value>حذف کپی رایت</Value>
     </LocaleResource>
     <LocaleResource Name="sevenspikes.themes.admin.settings.removecopyright.hint">
-        <Value>حذف اخطار حق نشر را پس از خرید کلید حذف حق نشر توسط www.nopCommerce.com</Value>
+        <Value>حذف اخطار حق نشر را پس از خرید کلید حذف حق نشر توسط www.echoShop.com</Value>
     </LocaleResource>
     <LocaleResource Name="sevenspikes.themes.admin.settings.removecopyright.hint.link">
         <Value>You can get a copyright removal key from &lt;a
-            href="https://www.nopcommerce.com/p/1/nopcommerce-copyright-removal-key.aspx?utm_source=nop-templates-theme-admin-panel&amp;utm_medium=nop-templates-theme-settings&amp;utm_campaign=nop-templates-theme-admin-panel"
-            target="_blank"&gt;nopCommerce website&lt;/a&gt;
+            href="https://www.echoShop.com/p/1/echoShop-copyright-removal-key.aspx?utm_source=nop-templates-theme-admin-panel&amp;utm_medium=nop-templates-theme-settings&amp;utm_campaign=nop-templates-theme-admin-panel"
+            target="_blank"&gt;echoShop website&lt;/a&gt;
         </Value>
     </LocaleResource>
     <LocaleResource Name="sevenspikes.themes.admin.settings.removedesignedby">
